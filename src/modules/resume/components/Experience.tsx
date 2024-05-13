@@ -14,14 +14,12 @@ const Experience = () => {
 
             <ol className="timeline-list">
               <li className="timeline-item">
-                <h4 className="h4 timeline-item-title">Creative director</h4>
+                <h4 className="h4 timeline-item-title">Web Developer</h4>
 
-                <span>2015 — Present</span>
+                <span>2023 — PKL</span>
 
                 <p className="timeline-text">
-                  Nemo enim ipsam voluptatem blanditiis praesentium voluptum
-                  delenit atque corrupti, quos dolores et qvuas molestias
-                  exceptur.
+                create a javaonetop soccer school website whose function is to carry out online registration and information about the soccer school
                 </p>
               </li>
 
