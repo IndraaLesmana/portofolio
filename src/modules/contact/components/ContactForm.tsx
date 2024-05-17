@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { FaCheckCircle, FaPaperPlane } from "react-icons/fa";
+import { FaCheckCircle, FaPaperPlane, FaTimesCircle } from "react-icons/fa";
 import { Toaster, toast } from 'react-hot-toast';
 
 const ContactForm = () => {
@@ -31,12 +31,37 @@ const ContactForm = () => {
       }
 
       setResult({ ...initState, values: initValues });
+      toast(
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <FaCheckCircle style={{ marginRight: "8px" }} />
+          Message sent.
+        </div>,
+        {
+          style: {
+            background: "#2F855A",
+            color: "#fff",
+          },
+        }
+      );
     } catch (error: unknown) {
-      if (error instanceof Error) {
-        setResult({ ...initState, error: error.message });
-      } else {
-        setResult({ ...initState, error: String(error) });
-      }
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      setResult((prev) => ({
+        ...prev,
+        isLoading: false,
+        error: errorMessage,
+      }));
+      toast(
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <FaTimesCircle style={{ marginRight: "8px" }} />
+          {errorMessage}
+        </div>,
+        {
+          style: {
+            background: "#E53E3E",
+            color: "#fff",
+          },
+        }
+      );
     } finally {
       setLoading(false);
     }
@@ -64,18 +89,6 @@ const ContactForm = () => {
     try {
       await sendEmail(values);
       setResult(initState);
-      toast(
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <FaCheckCircle style={{ marginRight: "8px" }} />
-          Message sent.
-        </div>,
-        {
-          style: {
-            background: "#2F855A",
-            color: "#fff",
-          },
-        }
-      );
     } catch (error) {
       setResult((prev) => ({
         ...prev,
