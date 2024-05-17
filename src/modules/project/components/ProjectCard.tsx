@@ -26,7 +26,7 @@ const ProjectCard = () => {
           </div>
           <div className="space-y-2 p-5">
             <div className="font-sora cursor-pointer text-lg text-neutral-700 transition-all duration-300 dark:text-neutral-300 dark:hover:text-teal-400 lg:hover:text-teal-800">
-              Portofolio
+              Portfolio
             </div>
             <p className="text-[15px] leading-relaxed text-neutral-700 dark:text-neutral-400">
               Personal websites, portfolios and blogs built with Next Js, CSS
